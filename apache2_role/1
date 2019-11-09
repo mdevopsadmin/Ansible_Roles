@@ -1,6 +1,0 @@
----
-- hosts: apache
-  become: yes
-  roles:
-     - /etc/ansible/apache2_role
-
