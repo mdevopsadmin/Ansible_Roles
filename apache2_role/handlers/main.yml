@@ -1,0 +1,8 @@
+---
+# handlers file for apache2_role
+
+- name: start httpd
+  service: name=httpd state=started
+
+- name: start apache
+  service: name=apache2 state=started

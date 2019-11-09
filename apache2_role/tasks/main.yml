@@ -1,0 +1,20 @@
+- name: Installing apache on Redhat environment
+  yum: name=httpd state=present
+ 
+  notify:
+    - start httpd
+
+  when: 'ansible_os_family == "RedHat" or ansible_os_family == "CentOS"'
+
+- name: Installing apache on Ubuntu environment
+  apt: name=apache2 state=present
+
+  notify:
+   - start apache
+
+  when: 'ansible_os_family == "Ubuntu" and ansible_distribution_version == "14"'
+
+- name: Validation on all env using templating a file into web directory
+  template:
+       src=index.html dest=/var/www/html
+      
